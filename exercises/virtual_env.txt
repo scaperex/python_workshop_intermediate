@@ -1,0 +1,10 @@
+topic: learn how to create and use virtual environment
+
+Requirments:
+* create virtualenv (for python3)
+* activate it
+* find which packages are needed by your code (how?) and save into requirements.txt
+* deactivate and delete the ./venv folder
+* create new venv, activate, install the packages and check that your code runs
+
+

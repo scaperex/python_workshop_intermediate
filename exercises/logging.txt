@@ -1,0 +1,40 @@
+Add logging to the sample code below.
+Requirements:
+* log to local file, with timestamp and process ID
+* log to console with just level and message
+* log to external service of your choice. see for example https://www.techradar.com/news/best-cloud-logging-service
+* log exceptions where relevant
+
+Error cases MUST be handled.
+For example:
+* can't open/write local file
+* can't connect to external service
+
+
+
+------- cut here ------
+def f(x):
+    if x > 0:
+        raise ValueError("x >= 0")
+    return x**3
+
+
+if __name__ == "__main__":
+    # add log
+    try:
+        f(-2)
+        f(44)
+        f(-1)
+    except ValueError as ex:
+        # replace with log
+        print("boom")
+    else:
+        pass # add log
+    finally:
+        pass # add log
+    # add log
+------- cut here ------
+
+
+
+

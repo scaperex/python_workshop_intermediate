@@ -1,0 +1,10 @@
+topic: experiment with profiling your source code
+
+Profiling is finding WHERE your code spends most of the time
+
+Requirements
+* use source code you already used; something that takes more than seconds to complete.
+  e.g. ex4, limit it to single use case so the normal run time is less than a minute.
+* run with profiler
+* analize the profiler output . Try to find the 'hot spot' 
+* think how to reduce the runtime , and by how much do you expect to improve (e.g. "hope to reduce by 40%")

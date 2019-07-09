@@ -1,0 +1,12 @@
+topic: Add unit test to a piece of code and run it
+
+Requirements:
+* Choose a class you already created and add unit test to it
+* Run the test, make sure it FAILS (if needed, cripple the tested class)
+* Fix the tested class, run again, make sure it PASSES
+* Add 3 more tests (each in its own function)
+* Bonus points: use Fixture (https://www.linuxjournal.com/content/python-testing-pytest-fixtures-and-coverage)
+* Even more gartifying bonus: check the code coverage (see above link)
+
+sample screencast
+https://drive.google.com/file/d/1Nm8yrFN1zBshed7D67JShRCfZ9ymWDN1/view

@@ -1,0 +1,12 @@
+topic: write a decorator of your own
+
+Requirements:
+* write a decorator that prints "entering" and "leaving"
+
+
+@hello
+def foo():
+	# 
+	pass
+
+
