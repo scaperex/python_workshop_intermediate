@@ -1,0 +1,93 @@
+misc tips to add somewhere
+
+######
+start by reading the python anti-pattern book
+
+######
+use namespace to improve readbility
+NO:
+from sklearn.neighbors import KNeighborsClassifier
+
+class AlgorithmRunner:
+
+    def __init__(self, classifier, knn_num):
+        if classifier == 'KNN':
+            self.algorithm = KNeighborsClassifier(n_neighbors=knn_num)
+            
+YES:
+from sklearn import  neighbors as sk_n 
+
+class AlgorithmRunner:
+
+    def __init__(self, classifier, knn_num):
+        if classifier == 'KNN':
+            self.algorithm = sk_n.KNeighborsClassifier(n_neighbors=knn_num)
+      
+
+
+######
+Use comment as temporary disabler:
+ dummies = pd.get_dummies(genres).groupby(level=0).sum()
+
+To run without the sum(), but can reuse it easily:
+ dummies = pd.get_dummies(genres).groupby(level=0) # .sum()
+
+
+######
+Use pass to place a breakpoint
+if something:
+	self.value = foo()
+do_stuff()
+
+I want to examin self.value after the assignment
+if something:
+	self.value = foo()
+	pass   # and put a bpt on this line
+do_stuff()
+
+######
+during develoment use small data set
+but not too small
+
+######
+Use shortcut evaluation to temporarily overide an "if"
+if question_num == 1:
+      dummies1 = pd.get_dummies(data['actor_1_name'])
+
+if True or question_num == 1:
+      dummies1 = pd.get_dummies(data['actor_1_name'])
+
+#####
+use assertions. lots of them.
+# if we expect question_num to be 1 or 2, explode if this assumption fails.
+assert question_num in (1,2)
+
+
+#####
+don't repeat yourself (error prone)
+NO:
+ if classifier == 'KNN'
+      self.algorithm = KNeighborsClassifier(n_neighbors=knn_num)
+      self.algorithm_name = 'KNN'
+YES:
+ if classifier == 'KNN'
+      self.algorithm = KNeighborsClassifier(n_neighbors=knn_num)
+      self.algorithm_name = classifier
+
+
+#####
+use lambda functions when appropriate, and only there
+
+
+#####
+don't force arguments into existance
+NO:
+    knn = AlgorithmRunner.AlgorithmRunner('KNN', 10) # '10' parameter is needed
+    rocchio = AlgorithmRunner.AlgorithmRunner('rocchio', 0) # '0' parameter is unused
+YES:
+class AlgorithmRunner:
+    def __init__(self, classifier, knn_num=0):
+	pass
+
+    knn = AlgorithmRunner.AlgorithmRunner('KNN', knn_num=10)
+    rocchio = AlgorithmRunner.AlgorithmRunner('rocchio')
